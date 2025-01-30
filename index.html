@@ -6,45 +6,48 @@
     <title>Hlavní stránka</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-      /* Zvětšení výšky lišty */
+    
       .navbar-custom {
-        background-color: #800080; /* Fialová barva */
-        height: 100px; /* Zvýšení výšky */
-        display: flex;
-        justify-content: center; /* Vycentrování obsahu */
-        align-items: center;
+       background-color: #800080;
+       height: 100px;
+        position: relative;
       }
+      .navbar-logo {
+        position: absolute;
+        left: 50%;
+       transform: translateX(-50%);
+       max-height: 100px; 
+      }   
       .navbar-custom img {
-        max-height: 80px; /* Zvýšená maximální výška obrázku */
-        max-width: 100%; /* Zajištění správného poměru stran */
+        max-height: 100px;
+        max-width: 100%; 
       }
-      /* Odstranění mezery mezi lištou a tlačítky */
       .button-container {
         display: flex;
         width: 100%;
-        margin-top: 0; /* Žádná mezera mezi lištou a tlačítky */
+        margin-top: 0; 
       }
       .button-container .btn {
         flex: 1;
-        height: 40px; /* Výška tlačítek */
+        height: 40px; 
         font-size: 20px;
         font-weight: bold;
-        border: 2px solid transparent; /* Transparentní okraje mezi tlačítky */
-        border-radius: 0; /* Bez zaoblených rohů */
-        outline: none; /* Odstranění outline */
+        border: 2px solid transparent; 
+        border-radius: 0; 
+        outline: none; 
       }
       .btn-students {
-        background-color: #d8b3d8; /* Vybledlejší fialová */
+        background-color: #d8b3d8; 
         color: #4b004b;
-        border-radius: 0 10px 10px 0; /* Zaoblení pravého horního a pravého dolního rohu */
+        border-radius: 0 10px 10px 0; 
       }
       .btn-teachers {
-        background-color: #d8b3d8; /* Vybledlejší fialová */
+        background-color: #d8b3d8; 
         color: #4b004b;
-        border-radius: 10px 0 0 10px; /* Zaoblení levého horního a levého dolního rohu */
+        border-radius: 10px 0 0 10px; 
       }
       .btn:hover {
-        background-color: #c28ac2; /* Lehce tmavší fialová na hover */
+        background-color: #c28ac2; 
       }
       .intro-section {
         padding: 50px 0;
@@ -61,59 +64,296 @@
         color: #333;
         line-height: 1.6;
       }
+      .ml-h2 {
+        font-size: 32px;
+        color:#800080;
+        font-weight: bold;
+      }
+      .centered-title {
+        font-size: 32px;
+        font-weight: bold; 
+        color: #800080; 
+        text-align: center;
+      }
       .ml-section {
         padding: 30px 15px;
         background-color: #fff;
+        text-align: center;
+      }
+      .ml-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+      .ml-card {
+        width: 100%;
+        max-width: 350px;
+        background-color: #800080;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         text-align: left;
       }
-      .ml-section h3 {
-        color: #800080;
-        font-size: 28px;
+      .ml-card h4 {
+        font-size: 24px;
         font-weight: bold;
       }
-      .ml-section p {
-        color: #333;
+      .ml-card p {
         font-size: 16px;
-        line-height: 1.8;
+        line-height: 1.6;
       }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .image-container {
+        width: 100%;
+        text-align: center;
+        padding-top: 30px;
+      }
+      .image-container img {
+        width: 80%;
+        max-width: 1000px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .classification-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 20px; 
+        max-width: 1200px;
+        margin: 0 auto; 
+}
+      .classification-container .fade-in {
+        width: 45%;
+        margin-right: 20px; 
+}
+      .classification-container img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
     </style>
   </head>
   <body>
     <!-- Horní lišta s obrázkem -->
     <nav class="navbar navbar-custom">
-      <img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM">
+      <img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo">
     </nav>
 
     <!-- Dvě tlačítka pod lištou -->
     <div class="button-container">
-      <a href="materialy.pro.zaky.html" class="btn btn-students">materiály pro žáky</a>
-      <a href="materialy.pro.ucitele.html" class="btn btn-teachers">materiály pro učitele</a>
+      <a href="materialy.pro.zaky.html" class="btn btn-students">Pro žáky</a>
+      <a href="materialy.pro.ucitele.html" class="btn btn-teachers">Pro učitele</a>
     </div>
 
     <!-- Sekce seznámení s webem -->
-    <div class="intro-section">
-      <div class="container">
-        <h2>Jaký je cíl této stránky?</h2>
-        <p>
-          Náš web je zaměřen na vysvětlení konceptu Machine Learningu, s důrazem na LLM (Large Language Models). 
-          Poskytujeme materiály pro studenty, které jim pomohou pochopit základy a aplikace těchto technologií.
-        </p>
-        <p>
-          Web nabízí interaktivní procvičování a studijní materiály pro žáky a pro učitele je připravený soubor nástrojů pro efektivní výuku.
-        </p>
-      </div>
-    </div>
+<div class="intro-section">
+  <div class="container">
+    <h2>Jaký je cíl této stránky?</h2>
+    <p>
+      Náš web je zaměřen na vysvětlení konceptu Machine Learningu, s důrazem na LLM (Large Language Models). 
+      Stránka poskytuje materiály pro studenty, které jim pomohou pochopit základy a aplikace těchto technologií.
+    </p>
+    <p>
+      Web nabízí interaktivní procvičování a studijní materiály pro žáky a pro učitele je připravený soubor nástrojů pro efektivní výuku.
+    </p>
+  </div>
+</div>
+
+<!-- Přesunutý Úvod do Machine Learning -->
+<div class="ml-h2">
+  <div class="container">
+    <h2 class="centered-title">Úvod do Machine Learningu</h2>
+  </div>
+</div>
 
     <!-- Sekce o druzích Machine Learningu -->
     <div class="ml-section">
       <div class="container">
         <h3>Druhy Machine Learningu</h3>
-        <p><strong>Supervised Learning:</strong> Model je trénován na označených datech, kde každá vstupní data mají odpovídající výstup. Cílem je naučit model předpovídat výstup na základě nových vstupních dat.</p>
-        <p><strong>Unsupervised Learning:</strong> Model pracuje s neoznačenými daty a snaží se najít skryté vzory nebo struktury, například pomocí shlukování nebo redukce dimenzionality.</p>
-        <p><strong>Reinforcement Learning:</strong> Model se učí prostřednictvím interakce s prostředím. Za správné akce dostává odměny a za špatné akce penalizace, což ho motivuje k lepším výkonům.</p>
+    </div>
+   </div>
+         <div class="ml-container">
+          <div class="ml-card fade-in">
+            <h4>Supervised Learning</h4>
+            <p>Model je trénován na označených datech, kde každá vstupní data mají odpovídající výstup. Cílem je naučit model předpovídat výstup na základě nových vstupních dat.</p>
+            <p><strong>Příklad:</strong> Rozpoznávání rukopisných písmen, kde jsou trénovací data obsahující písmena a jejich správné označení.</p>
+          </div>
+          <div class="ml-card fade-in">
+            <h4>Unsupervised Learning</h4>
+            <p>Model pracuje s neoznačenými daty a snaží se najít skryté vzory nebo struktury, například pomocí shlukování nebo redukce dimenzionality.</p>
+            <p><strong>Příklad:</strong> Shlukování zákazníků podle jejich nákupního chování.</p>
+          </div>
+          <div class="ml-card fade-in">
+            <h4>Reinforcement Learning</h4>
+            <p>Model se učí prostřednictvím interakce s prostředím. Za správné akce dostává odměny a za špatné akce penalizace, což ho motivuje k lepším výkonům.</p>
+            <p><strong>Příklad:</strong> Trénování robota k navigaci v prostoru pomocí pokusů a omylů.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <!-- Obrázek typu Machine Learning -->
+    <div class="image-container fade-in">
+      <img src="types of machinelearning.png" alt="Types of Machine Learning">
+    </div>
+
+    <!-- Sekce pro Classification a jeho vysvětlení -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Classification in Supervised Learning</h4>
+    <p>
+      Classification (klasifikace) je jedním z nejběžnějších typů <strong>supervised learning</strong> (učené s učitelem) v oblasti strojového učení. Tento typ strojového učení se používá k přiřazení vstupních dat do jedné nebo více kategorií (nebo tříd) na základě historických dat, která byla označena (tzn. obsahují správné odpovědi).
+    </p>
+    <p>
+      Jak funguje Classification? Představ si situaci, kdy máme dataset s obrázky koček a psů. Tento dataset obsahuje obrázky (vstupní data) a jejich odpovídající označení, tj. každému obrázku je přiřazeno, zda jde o kočku, nebo psa. Cílem klasifikačního algoritmu je naučit se rozlišovat mezi těmito dvěma kategoriemi.
+    </p>
+    <p>
+      Proces Klasifikace:
+      <ul>
+        <li><strong>Trénování:</strong> Model se trénuje na označených datech, aby našel vzory pro přiřazení nových vstupních dat do kategorií.</li>
+        <li><strong>Testování:</strong> Model je testován na neoznačených datech, aby ověřil svou schopnost správně klasifikovat nové informace.</li>
+        <li><strong>Predikce:</strong> Model predikuje kategorie pro nové vstupy na základě vzorů naučených při trénování.</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Příklady:</strong> 
+      <ul>
+        <li>Detekce e-mailů jako spam nebo ne-spam.</li>
+        <li>Diagnostika nemocí z lékařských snímků.</li>
+      </ul>
+    </p>
+  </div>
+  <div class="fade-in">
+    <img src="classification.png" alt="Classification" />
+  </div>
+</div>
+
+<!-- Sekce pro Regression a jeho vysvětlení (pod Classification) -->
+<div class="classification-container">
+  <div class="fade-in">
+    <img src="regression.png" alt="Regression" />
+  </div>
+  <div class="fade-in">
+    <h4>Regression in Supervised Learning</h4>
+    <p>
+      Regression (regrese) je další populární technikou v <strong>supervised learning</strong> (učené s učitelem), která se používá k předpovědi číselných hodnot. Na rozdíl od klasifikace, kde model přiřazuje vstupy do kategorií, regresní modely předpovídají hodnoty, které spadají do nějakého rozsahu čísel.
+    </p>
+    <p>
+      Jak funguje Regression? Představte si, že máme dataset, který obsahuje údaje o velikosti domu (v m²) a jeho ceně. Cílem regresního modelu je najít vztah mezi velikostí domu a jeho cenou, aby mohl na základě těchto informací předpovědět cenu nového domu.
+    </p>
+    <p>
+      Proces Regrese:
+      <ul>
+        <li><strong>Trénování:</strong> Model se trénuje na historických datech, kde jsou známé vstupy (např. velikost domu) a odpovídající výstupy (např. cena). Model se naučí vztah mezi těmito hodnotami.</li>
+        <li><strong>Testování:</strong> Model je testován na nových datech, aby ověřil, jak dobře dokáže předpovědět cenu na základě nových vstupů.</li>
+        <li><strong>Predikce:</strong> Model predikuje hodnotu pro nové vstupy, například cenu nového domu na základě jeho velikosti.</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Příklady:</strong>
+      <ul>
+        <li>Předpověď cen nemovitostí na základě jejich velikosti a dalších parametrů.</li>
+        <li>Předpověď prodeje produktu na základě historických dat.</li>
+        <li>Předpověď teploty na základě klimatických dat.</li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+<!-- Sekce pro Clustering a jeho vysvětlení -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Clustering in Unsupervised Learning</h4>
+    <p>
+      Clustering (shlukování) je technika strojového učení v rámci <strong>unsupervised learning</strong> (učení bez učitele), která se používá k seskupování podobných dat do shluků (nebo skupin). Na rozdíl od klasifikace, kde máme označená data, clustering nevyžaduje žádná předchozí označení. Model se učí pouze na základě podobnosti mezi daty.
+    </p>
+    <p>
+      Jak funguje Clustering? Představ si situaci, kdy máme dataset se zákazníky a jejich nákupním chováním. Bez předchozích informací o tom, kdo je kdo, model seskupí zákazníky podle podobnosti jejich nákupů do několika shluků.
+    </p>
+    <p>
+      Proces Shlukování:
+      <ul>
+        <li><strong>Shlukování:</strong> Model se pokusí najít skupiny podobných datových bodů, aniž by měl k dispozici informace o jejich identitě.</li>
+        <li><strong>Analýza:</strong> Po vytvoření shluků je možné analyzovat, jaké charakteristiky mají jednotlivé skupiny.</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Příklady:</strong> 
+      <ul>
+        <li>Segmentace zákazníků podle jejich nákupního chování.</li>
+        <li>Shlukování dokumentů nebo textů podle témat.</li>
+        <li>Identifikace podobných obrazů v databázích.</li>
+      </ul>
+    </p>
+  </div>
+  <div class="fade-in">
+    <img src="clustering.png" alt="Clustering" />
+  </div>
+</div>
+
+<!-- Sekce pro Reinforcement Learning a jeho vysvětlení -->
+<div class="classification-container">
+  <div class="fade-in">
+    <img src="Reinforcment.png" alt="Reinforcement Learning" />
+  </div>
+  <div class="fade-in">
+    <h4>Reinforcement Learning</h4>
+    <p>
+      <strong>Reinforcement learning (RL)</strong> je oblast strojového učení, která se zaměřuje na učení prostřednictvím interakce s prostředím. V RL se agent učí, jak se chovat v určitém prostředí, aby maximalizoval odměnu, kterou dostává za své akce. Tento přístup je podobný tomu, jak se lidé učí z pokusů a omylů.
+    </p>
+    <p>
+      Jak funguje Reinforcement Learning? Představ si agenta (např. robota), který se nachází v nějakém prostředí (např. labyrintu). Tento agent provádí různé akce a za správné akce dostává odměny, zatímco za nesprávné akce dostává penalizace.
+    </p>
+    <p>
+      Proces Reinforcement Learning:
+      <ul>
+        <li><strong>Agent:</strong> Subjekt, který se učí a rozhoduje se na základě akcí.</li>
+        <li><strong>Prostředí:</strong> Místo, kde agent interaguje, např. virtuální svět nebo robotické zařízení.</li>
+        <li><strong>Odměny a Penalizace:</strong> Odměny motivují agenta k užitečným akcím, penalizace ho odrazují od špatných rozhodnutí.</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Příklady:</strong>
+      <ul>
+        <li>Trénování robota, který se učí procházet překážkami v prostředí.</li>
+        <li>Hraní her (např. šachy nebo Go), kde agent zlepšuje své schopnosti prostřednictvím herní strategie.</li>
+        <li>Automatizované řízení ve výrobních linkách, kde se agent učí optimalizovat procesy.</li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+
+<script>
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const checkVisibility = () => {
+    const windowHeight = window.innerHeight;
+    fadeInElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+
+      if (elementTop < windowHeight - 150 && elementBottom > 0) { 
+        element.classList.add('visible');
+      } else {
+        element.classList.remove('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', checkVisibility);
+  checkVisibility();
+</script>
+    </body>
+  </html>

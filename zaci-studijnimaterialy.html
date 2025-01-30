@@ -8,16 +8,9 @@
     <style>
       .navbar-custom {
         background-color: #800080;
-        height: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 100px;
+        position: relative;
         padding: 0 20px;
-      }
-      .navbar-custom .navbar-brand {
-        color: white;
-        font-size: 28px;
-        font-weight: bold;
       }
       .navbar-custom .btn-back {
         color: white;
@@ -28,10 +21,30 @@
         border-radius: 5px;
         padding: 5px 15px;
         text-decoration: none;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
       }
       .navbar-custom .btn-back:hover {
         background-color: #c28ac2;
         text-decoration: none;
+      }
+      .navbar-custom .navbar-logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 100px;
+      }
+      .navbar-custom .navbar-brand {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
       }
       .intro-section {
         padding: 50px 0;
@@ -54,8 +67,9 @@
     <nav class="navbar navbar-custom">
       <!-- Tlačítko vlevo pro návrat -->
       <a href="materialy.pro.zaky.html" class="btn-back">Zpět</a>
-      <!-- Název uprostřed -->
-      <span class="navbar-brand">Studijní materiály</span>
+
+      <!-- Logo uprostřed -->
+      <img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo">
     </nav>
 
     <div class="intro-section">
