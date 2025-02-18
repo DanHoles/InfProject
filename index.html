@@ -143,6 +143,37 @@
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+.features-container {
+    display: flex;
+    justify-content: center; /* Zarovná seznam na střed obrazovky */
+  }
+
+  .features-list {
+    list-style-type: none; /* Odstraní černé tečky */
+    padding: 0; /* Zruší výchozí odsazení seznamu */
+    text-align: left; /* Zarovná text v seznamu doleva */
+  }
+
+  .features-list li {
+    margin-bottom: 8px; /* Přidá mezery mezi body pro lepší čitelnost */
+    font-size: 18px; /* Zvýší velikost textu o 2px */
+  }
+  .info-section {
+  margin-left: 40px; /* Posun od levého okraje */
+  white-space: normal; /* Zajistí, že text nebude skákat na další řádky zbytečně */
+}
+
+.text-link {
+  color: #1a1c1f; /* Modrá barva jako u běžných odkazů */
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap; /* Zabrání zalomení odkazu na nový řádek */
+}
+
+.text-link:hover {
+  text-decoration: underline; /* Zvýraznění při najetí myší */
+}
+
     </style>
   </head>
   <body>
@@ -157,184 +188,75 @@
       <a href="materialy.pro.ucitele.html" class="btn btn-teachers">Pro učitele</a>
     </div>
 
-    <!-- Sekce seznámení s webem -->
-<div class="intro-section">
-  <div class="container">
-    <h2>Jaký je cíl této stránky?</h2>
-    <p>
-      Náš web je zaměřen na vysvětlení konceptu Machine Learningu, s důrazem na LLM (Large Language Models). 
-      Stránka poskytuje materiály pro studenty, které jim pomohou pochopit základy a aplikace těchto technologií.
-    </p>
-    <p>
-      Web nabízí interaktivní procvičování a studijní materiály pro žáky a pro učitele je připravený soubor nástrojů pro efektivní výuku.
-    </p>
-  </div>
-</div>
-
-<!-- Přesunutý Úvod do Machine Learning -->
-<div class="ml-h2">
-  <div class="container">
-    <h2 class="centered-title">Úvod do Machine Learningu</h2>
-  </div>
-</div>
-
-    <!-- Sekce o druzích Machine Learningu -->
-    <div class="ml-section">
-      <div class="container">
-        <h3>Druhy Machine Learningu</h3>
+   <!-- Sekce seznámení s webem -->
+   <div class="intro-section">
+    <div class="container">
+      <h2>Jaký je cíl této stránky?</h2>
+      <p> <strong>Umělá inteligence už není jen sci-fi – je tady a mění svět!</strong>  
+        Ať už píše texty, generuje obrázky nebo pomáhá s výzkumem, stojí za ní <strong>strojové učení (Machine Learning).</strong> Chceš zjistit, jak to funguje?</p>
+      
+      <p>Tento web je určen především studentům druhého stupně ZŠ i jejich učitelům, nebo komukoli ', kdo by se chtěl něco nového přiučit. Nabízí:</p>
+  
+      <div class="features-container">
+        <ul class="features-list">
+          <li>✅ <strong>Srozumitelná vysvětlení</strong> klíčových pojmů a principů ML a velkých jazykových modelů (LLM).</li>
+          <li>✅ <strong>Testy</strong> na procvičení svých znalostí.</li>
+          <li>✅ <strong>Materiály pro učitele</strong> – pracovní listy, testy, prezentace a vše, co pomůže s výukou ve třídě.</li>
+        </ul>
+      </div>
+  
+      <p>💡 <strong>Proč je to důležité?</strong> Podívej se na 9 důvodů níže a zjisti, proč by tě ML mělo zajímat! 👇</p>
     </div>
-   </div>
-         <div class="ml-container">
-          <div class="ml-card fade-in">
-            <h4>Supervised Learning</h4>
-            <p>Model je trénován na označených datech, kde každá vstupní data mají odpovídající výstup. Cílem je naučit model předpovídat výstup na základě nových vstupních dat.</p>
-            <p><strong>Příklad:</strong> Rozpoznávání rukopisných písmen, kde jsou trénovací data obsahující písmena a jejich správné označení.</p>
-          </div>
-          <div class="ml-card fade-in">
-            <h4>Unsupervised Learning</h4>
-            <p>Model pracuje s neoznačenými daty a snaží se najít skryté vzory nebo struktury, například pomocí shlukování nebo redukce dimenzionality.</p>
-            <p><strong>Příklad:</strong> Shlukování zákazníků podle jejich nákupního chování.</p>
-          </div>
-          <div class="ml-card fade-in">
-            <h4>Reinforcement Learning</h4>
-            <p>Model se učí prostřednictvím interakce s prostředím. Za správné akce dostává odměny a za špatné akce penalizace, což ho motivuje k lepším výkonům.</p>
-            <p><strong>Příklad:</strong> Trénování robota k navigaci v prostoru pomocí pokusů a omylů.</p>
-          </div>
-        </div>
+  </div>
+
+<div class="ml-section">
+  <div class="container">
+    <div class="ml-container">
+      <div class="ml-card fade-in">
+        <h4>Strojové učení je všude</h4>
+        <p>Od doporučení videí na YouTube po hlasové asistenty – Machine Learning pomáhá milionům lidí každý den. Algoritmy analyzují data a přizpůsobují obsah tak, aby odpovídal tvým preferencím.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>Pomáhá řešit složité problémy</h4>
+        <p>Lékaři využívají AI k diagnostice nemocí, vědci k objevování nových léčiv a firmy k optimalizaci výroby. Strojové učení dokáže detekovat vzory, které by člověk snadno přehlédl.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>Znalost ML ti otevře dveře</h4>
+        <p>Chceš být programátor, vědec, nebo pracovat v herním průmyslu? Porozumění Machine Learningu ti dá náskok. Firmy stále více hledají odborníky na umělou inteligenci.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>LLM mění způsob, jakým komunikujeme</h4>
+        <p>Velké jazykové modely (LLM) jako ChatGPT či Gemini umožňují přirozenou interakci mezi lidmi a stroji. Dokážou překládat texty, shrnovat informace nebo generovat kreativní obsah.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>Automatizace šetří čas</h4>
+        <p>AI může automatizovat úkoly, jako je zpracování dokumentů, analýza zákaznické podpory nebo generování kódu. Díky tomu se lidé mohou soustředit na kreativnější práci.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>Machine Learning pomáhá chránit bezpečnost</h4>
+        <p>Algoritmy dokážou odhalit podezřelé transakce, detekovat kybernetické útoky nebo identifikovat fake news. AI je klíčová pro moderní bezpečnostní systémy.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>Umělá inteligence přetváří vzdělávání</h4>
+        <p>Personalizované výukové platformy s AI dokážou přizpůsobit obsah podle úrovně studenta a pomoci mu se zlepšovat v konkrétních oblastech.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>ML umožňuje predikci budoucnosti</h4>
+        <p>Analytické modely na základě historických dat dokážou předpovídat trendy na trhu, pohyby akcií nebo například vývoj počasí.</p>
+      </div>
+      <div class="ml-card fade-in">
+        <h4>AI a ML otevírají nové pracovní příležitosti</h4>
+        <p>Nejen vývojáři, ale i odborníci na etiku AI nebo právníci specializující se na regulaci AI budou čím dál více potřební v moderním světě.</p>
       </div>
     </div>
-
-    <!-- Obrázek typu Machine Learning -->
-    <div class="image-container fade-in">
-      <img src="types of machinelearning.png" alt="Types of Machine Learning">
-    </div>
-
-    <!-- Sekce pro Classification a jeho vysvětlení -->
-<div class="classification-container">
-  <div class="fade-in">
-    <h4>Classification in Supervised Learning</h4>
-    <p>
-      Classification (klasifikace) je jedním z nejběžnějších typů <strong>supervised learning</strong> (učené s učitelem) v oblasti strojového učení. Tento typ strojového učení se používá k přiřazení vstupních dat do jedné nebo více kategorií (nebo tříd) na základě historických dat, která byla označena (tzn. obsahují správné odpovědi).
-    </p>
-    <p>
-      Jak funguje Classification? Představ si situaci, kdy máme dataset s obrázky koček a psů. Tento dataset obsahuje obrázky (vstupní data) a jejich odpovídající označení, tj. každému obrázku je přiřazeno, zda jde o kočku, nebo psa. Cílem klasifikačního algoritmu je naučit se rozlišovat mezi těmito dvěma kategoriemi.
-    </p>
-    <p>
-      Proces Klasifikace:
-      <ul>
-        <li><strong>Trénování:</strong> Model se trénuje na označených datech, aby našel vzory pro přiřazení nových vstupních dat do kategorií.</li>
-        <li><strong>Testování:</strong> Model je testován na neoznačených datech, aby ověřil svou schopnost správně klasifikovat nové informace.</li>
-        <li><strong>Predikce:</strong> Model predikuje kategorie pro nové vstupy na základě vzorů naučených při trénování.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>Příklady:</strong> 
-      <ul>
-        <li>Detekce e-mailů jako spam nebo ne-spam.</li>
-        <li>Diagnostika nemocí z lékařských snímků.</li>
-      </ul>
-    </p>
-  </div>
-  <div class="fade-in">
-    <img src="classification.png" alt="Classification" />
   </div>
 </div>
-
-<!-- Sekce pro Regression a jeho vysvětlení (pod Classification) -->
-<div class="classification-container">
-  <div class="fade-in">
-    <img src="regression.png" alt="Regression" />
-  </div>
-  <div class="fade-in">
-    <h4>Regression in Supervised Learning</h4>
-    <p>
-      Regression (regrese) je další populární technikou v <strong>supervised learning</strong> (učené s učitelem), která se používá k předpovědi číselných hodnot. Na rozdíl od klasifikace, kde model přiřazuje vstupy do kategorií, regresní modely předpovídají hodnoty, které spadají do nějakého rozsahu čísel.
-    </p>
-    <p>
-      Jak funguje Regression? Představte si, že máme dataset, který obsahuje údaje o velikosti domu (v m²) a jeho ceně. Cílem regresního modelu je najít vztah mezi velikostí domu a jeho cenou, aby mohl na základě těchto informací předpovědět cenu nového domu.
-    </p>
-    <p>
-      Proces Regrese:
-      <ul>
-        <li><strong>Trénování:</strong> Model se trénuje na historických datech, kde jsou známé vstupy (např. velikost domu) a odpovídající výstupy (např. cena). Model se naučí vztah mezi těmito hodnotami.</li>
-        <li><strong>Testování:</strong> Model je testován na nových datech, aby ověřil, jak dobře dokáže předpovědět cenu na základě nových vstupů.</li>
-        <li><strong>Predikce:</strong> Model predikuje hodnotu pro nové vstupy, například cenu nového domu na základě jeho velikosti.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>Příklady:</strong>
-      <ul>
-        <li>Předpověď cen nemovitostí na základě jejich velikosti a dalších parametrů.</li>
-        <li>Předpověď prodeje produktu na základě historických dat.</li>
-        <li>Předpověď teploty na základě klimatických dat.</li>
-      </ul>
-    </p>
-  </div>
+<!-- Sekce s odkazy pro žáky a učitele -->
+<div class="info-section">
+  <p> <strong>Chceš se dozvědět víc?</strong></p>
+  <p>🔍 Jsi žák a zaujalo tě ML a LLM? Klikni na horní liště na tlačítko <a href="materialy.pro.zaky.html" class="text-link">PRO ŽÁKY</a> a prozkoumej materiály a testy</p>
+  <p>📚 Jsi učitel a chceš pomoci mladé generaci pochopit svět umělé inteligence? Klikni na <a href="materialy.pro.ucitele.html" class="text-link">PRO UČITELE</a> a získej všechny potřebné materiály pro výuku.</p>
 </div>
-
-<!-- Sekce pro Clustering a jeho vysvětlení -->
-<div class="classification-container">
-  <div class="fade-in">
-    <h4>Clustering in Unsupervised Learning</h4>
-    <p>
-      Clustering (shlukování) je technika strojového učení v rámci <strong>unsupervised learning</strong> (učení bez učitele), která se používá k seskupování podobných dat do shluků (nebo skupin). Na rozdíl od klasifikace, kde máme označená data, clustering nevyžaduje žádná předchozí označení. Model se učí pouze na základě podobnosti mezi daty.
-    </p>
-    <p>
-      Jak funguje Clustering? Představ si situaci, kdy máme dataset se zákazníky a jejich nákupním chováním. Bez předchozích informací o tom, kdo je kdo, model seskupí zákazníky podle podobnosti jejich nákupů do několika shluků.
-    </p>
-    <p>
-      Proces Shlukování:
-      <ul>
-        <li><strong>Shlukování:</strong> Model se pokusí najít skupiny podobných datových bodů, aniž by měl k dispozici informace o jejich identitě.</li>
-        <li><strong>Analýza:</strong> Po vytvoření shluků je možné analyzovat, jaké charakteristiky mají jednotlivé skupiny.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>Příklady:</strong> 
-      <ul>
-        <li>Segmentace zákazníků podle jejich nákupního chování.</li>
-        <li>Shlukování dokumentů nebo textů podle témat.</li>
-        <li>Identifikace podobných obrazů v databázích.</li>
-      </ul>
-    </p>
-  </div>
-  <div class="fade-in">
-    <img src="clustering.png" alt="Clustering" />
-  </div>
-</div>
-
-<!-- Sekce pro Reinforcement Learning a jeho vysvětlení -->
-<div class="classification-container">
-  <div class="fade-in">
-    <img src="Reinforcment.png" alt="Reinforcement Learning" />
-  </div>
-  <div class="fade-in">
-    <h4>Reinforcement Learning</h4>
-    <p>
-      <strong>Reinforcement learning (RL)</strong> je oblast strojového učení, která se zaměřuje na učení prostřednictvím interakce s prostředím. V RL se agent učí, jak se chovat v určitém prostředí, aby maximalizoval odměnu, kterou dostává za své akce. Tento přístup je podobný tomu, jak se lidé učí z pokusů a omylů.
-    </p>
-    <p>
-      Jak funguje Reinforcement Learning? Představ si agenta (např. robota), který se nachází v nějakém prostředí (např. labyrintu). Tento agent provádí různé akce a za správné akce dostává odměny, zatímco za nesprávné akce dostává penalizace.
-    </p>
-    <p>
-      Proces Reinforcement Learning:
-      <ul>
-        <li><strong>Agent:</strong> Subjekt, který se učí a rozhoduje se na základě akcí.</li>
-        <li><strong>Prostředí:</strong> Místo, kde agent interaguje, např. virtuální svět nebo robotické zařízení.</li>
-        <li><strong>Odměny a Penalizace:</strong> Odměny motivují agenta k užitečným akcím, penalizace ho odrazují od špatných rozhodnutí.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>Příklady:</strong>
-      <ul>
-        <li>Trénování robota, který se učí procházet překážkami v prostředí.</li>
-        <li>Hraní her (např. šachy nebo Go), kde agent zlepšuje své schopnosti prostřednictvím herní strategie.</li>
-        <li>Automatizované řízení ve výrobních linkách, kde se agent učí optimalizovat procesy.</li>
-      </ul>
-    </p>
-  </div>
-</div>
-
 
 <script>
   const fadeInElements = document.querySelectorAll('.fade-in');
@@ -355,5 +277,6 @@
   window.addEventListener('scroll', checkVisibility);
   checkVisibility();
 </script>
+
     </body>
   </html>
