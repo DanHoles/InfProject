@@ -363,6 +363,95 @@
     </p>
   </div>
 </div>
+<!-- Sekce o LLM -->
+<div class="ml-section">
+  <div class="container">
+    <h2 class="ml-h2">Úvod do LLM</h2>
+  </div>
+</div>
+
+<div class="ml-container">
+  <div class="ml-card fade-in">
+    <h4>Co je to LLM?</h4>
+    <p>
+      LLM (Large Language Model) je typ neuronové sítě, která je trénována na obrovském množství textových dat, aby dokázala generovat lidsky srozumitelný text, odpovídat na otázky nebo vytvářet souvislé příběhy.
+    </p>
+    <p><strong>Příklad:</strong> Chatboti jako ChatGPT, kteří umí odpovídat na složité dotazy.</p>
+  </div>
+
+  <div class="ml-card fade-in">
+    <h4>Jak se trénuje LLM?</h4>
+    <p>
+      Model se učí na základě textových dat a pomocí metody zvané <strong>transformer</strong>. Během trénování se snaží předpovědět další slovo v textu a postupně se zlepšuje díky zpětné vazbě.
+    </p>
+    <p><strong>Příklad:</strong> Model čte větu "Dnes je krásný ..." a snaží se předpovědět další slovo (např. "den").</p>
+  </div>
+
+  <div class="ml-card fade-in">
+    <h4>Kde se LLM používají?</h4>
+    <p>
+      LLM se využívají v různých oblastech, jako jsou virtuální asistenti, překladače nebo nástroje pro automatické generování textu.
+    </p>
+    <p><strong>Příklad:</strong> Google Translate nebo hlasoví asistenti jako Siri.</p>
+  </div>
+</div>
+
+
+
+<!-- Sekce o Neuronových sítích -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Neuronová síť</h4>
+    <p>
+      Základem LLM je <strong>umělá neuronová síť</strong>, která napodobuje způsob, jakým funguje lidský mozek. Obsahuje vrstvy neuronů, které zpracovávají informace a učí se z dat.
+    </p>
+    <p>
+      <strong>Proces učení:</strong>
+      <ul>
+        <li><strong>Vstupní vrstva:</strong> Přijímá textová data.</li>
+        <li><strong>Skryté vrstvy:</strong> Analyzují a hledají vzory v datech.</li>
+        <li><strong>Výstupní vrstva:</strong> Generuje odpověď na základě naučených vzorů.</li>
+      </ul>
+    </p>
+  </div>
+  <div class="fade-in">
+    <img src="NeuronovaSit.jpg" alt="Neuronová síť">
+  </div>
+</div>
+
+<!-- Sekce o Trénování LLM -->
+<div class="classification-container">
+  <div class="fade-in">
+    <img src="AI learning.svg" alt="Trénování LLM">
+  </div>
+  <div class="fade-in">
+    <h4>Jak se LLM učí?</h4>
+    <p>
+      Trénování LLM probíhá ve třech hlavních fázích:
+      <ul>
+        <li><strong>Předtrénování:</strong> Model se učí na obrovském množství dat.</li>
+        <li><strong>Doladění:</strong> Upravuje se pro konkrétní úkoly (např. zákaznická podpora).</li>
+        <li><strong>Interakce s uživateli:</strong> Model se postupně zlepšuje díky zpětné vazbě.</li>
+      </ul>
+    </p>
+    <p><strong>Příklad:</strong> Model se nejprve učí obecné informace a poté se specializuje na lékařské poradenství.</p>
+  </div>
+</div>
+
+<!-- Sekce o Rizicích AI -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Rizika a etika LLM</h4>
+    <p>
+      Použití LLM přináší nejen výhody, ale i rizika, jako je šíření dezinformací nebo zkreslené odpovědi. Je důležité zajistit, aby byly modely používány eticky a bezpečně.
+    </p>
+    <p><strong>Příklad:</strong> Filtry obsahu, které zabraňují šíření škodlivých informací.</p>
+  </div>
+  <div class="fade-in">
+    <img src="ai_risks.png" alt="Rizika AI">
+  </div>
+</div>
+
 
 <script>
   const fadeInElements = document.querySelectorAll('.fade-in');
@@ -373,7 +462,7 @@
       const elementTop = element.getBoundingClientRect().top;
       const elementBottom = element.getBoundingClientRect().bottom;
 
-      if (elementTop < windowHeight - 150 && elementBottom > 0) { 
+      if (elementTop < windowHeight - 120 && elementBottom > 0) { 
         element.classList.add('visible');
       } else {
         element.classList.remove('visible');
