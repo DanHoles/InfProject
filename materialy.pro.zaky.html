@@ -14,9 +14,10 @@
       .navbar-logo {
         position: absolute;
         left: 50%;
-       transform: translateX(-50%);
-       max-height: 100px; 
-      }   
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 100px;
+      }
       .navbar-custom img {
         max-height: 100px;
         max-width: 100%; 
@@ -116,13 +117,18 @@
         width: 100%;
         text-align: center;
         padding-top: 30px;
-      }
+        mix-blend-mode: normal;
+        background-color: transparent;
+
+        }
       .image-container img {
         width: 80%;
         max-width: 1000px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+        background-color: transparent;
+        mix-blend-mode: normal;
+        }
       .classification-container {
         display: flex;
         align-items: center;
@@ -131,27 +137,33 @@
         gap: 20px; 
         max-width: 1200px;
         margin: 0 auto; 
-}
+        mix-blend-mode: normal;
+        background-color: transparent;
+      }
       .classification-container .fade-in {
         width: 45%;
         margin-right: 20px; 
-}
+        mix-blend-mode: normal;
+        background-color: transparent;
+      }
       .classification-container img {
         width: 100%;
         max-width: 400px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        mix-blend-mode: normal;
+        background-color: transparent;
 }
-.navbar-custom .btn-back {
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #800080;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin-left: 20px; /* Přidá odsazení od levého kraje */
+      .navbar-custom .btn-back {
+       color: white;
+       font-size: 16px;
+      font-weight: bold;
+       background-color: #800080;
+       border: 2px solid transparent;
+       border-radius: 5px;
+        padding: 10px 15px;
+       text-decoration: none;
+       margin-left: 20px; 
       }
       .navbar-custom .navbar-brand {
         color: white;
@@ -181,7 +193,7 @@
       <a href="index.html" class="btn-back">Zpět na hlavní stránku</a>
       
       <!-- Logo uprostřed -->
-      <img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo">
+      <a href="index.html"><img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo"></a>
     </nav>
 
     <!-- Dvě tlačítka pro studijní materiály a procvičení -->
@@ -241,7 +253,7 @@
     <!-- Sekce pro Classification a jeho vysvětlení -->
 <div class="classification-container">
   <div class="fade-in">
-    <h4>Classification in Supervised Learning</h4>
+    <h4>Klasifikace v Supervised Learning</h4>
     <p>
       Classification (klasifikace) je jedním z nejběžnějších typů <strong>supervised learning</strong> (učené s učitelem) v oblasti strojového učení. Tento typ strojového učení se používá k přiřazení vstupních dat do jedné nebo více kategorií (nebo tříd) na základě historických dat, která byla označena (tzn. obsahují správné odpovědi).
     </p>
@@ -275,7 +287,7 @@
     <img src="regression.png" alt="Regression" />
   </div>
   <div class="fade-in">
-    <h4>Regression in Supervised Learning</h4>
+    <h4>Regrese v Supervised Learning</h4>
     <p>
       Regression (regrese) je další populární technikou v <strong>supervised learning</strong> (učené s učitelem), která se používá k předpovědi číselných hodnot. Na rozdíl od klasifikace, kde model přiřazuje vstupy do kategorií, regresní modely předpovídají hodnoty, které spadají do nějakého rozsahu čísel.
     </p>
@@ -304,7 +316,7 @@
 <!-- Sekce pro Clustering a jeho vysvětlení -->
 <div class="classification-container">
   <div class="fade-in">
-    <h4>Clustering in Unsupervised Learning</h4>
+    <h4>Clustering v Unsupervised Learning</h4>
     <p>
       Clustering (shlukování) je technika strojového učení v rámci <strong>unsupervised learning</strong> (učení bez učitele), která se používá k seskupování podobných dat do shluků (nebo skupin). Na rozdíl od klasifikace, kde máme označená data, clustering nevyžaduje žádná předchozí označení. Model se učí pouze na základě podobnosti mezi daty.
     </p>
@@ -448,7 +460,7 @@
     <p><strong>Příklad:</strong> Filtry obsahu, které zabraňují šíření škodlivých informací.</p>
   </div>
   <div class="fade-in">
-    <img src="ai_risks.png" alt="Rizika AI">
+    <img src="airisks.webp" alt="Rizika AI">
   </div>
 </div>
 

@@ -37,8 +37,9 @@
       .navbar-custom .logo {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
-        height: 100px; /* Nastavení výšky na 100px */
+        transform: translate(-50%, -50%);
+        top: 50%;
+        height: 100px;
       }
       .intro-section {
         padding: 50px 0;
@@ -55,6 +56,20 @@
         color: #333;
         line-height: 1.6;
       }
+      .container {
+        margin-bottom: 10px;
+      }
+      .material-link {
+        font-size: 18px;
+        margin-top: 10px;
+        display: block;
+        color: #800080;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .material-link:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -63,7 +78,7 @@
       <a href="materialy.pro.zaky.html" class="btn-back">Zpět</a>
       
       <!-- Obrázek loga uprostřed -->
-      <img src="CoJeToLLM log.png" alt="Logo CoJeToLLM" class="logo">
+      <a href="index.html"><img src="CoJeToLLM log.png" alt="Logo CoJeToLLM" class="logo"></a>
     </nav>
 
     <div class="intro-section">
@@ -71,6 +86,21 @@
       <p>
         Zde najdete všechny studijní materiály potřebné k pochopení principů strojového učení.
       </p>
+    </div>
+    <div class="container">
+      <a href="https://docs.google.com/document/d/1e8q0r8wOYqh6fD38IsLOBT6emo5KRqBOeMbPDQCSJ-E/edit?usp=sharing" class="material-link" target="_blank">
+        Klikněte zde pro přístup ke kartičkám na vytisknutí a procvičení
+      </a>
+    </div>
+    <div class="container">
+      <a href="https://quizlet.com/cz/1017986603/karticky-na-procviceni-ai-llm-ml-flash-cards/?i=2qhf4g&x=1jqt" class="material-link" target="_blank">
+        Klikněte zde pro přístup ke quizletu kartičkám na procvičení
+      </a>
+    </div>
+    <div class="container">
+      <a href="https://create.kahoot.it/share/ai-llm-ml/054375d3-c644-4b1f-b9ba-5a4390fbc5d7" class="material-link" target="_blank">
+        Klikněte zde pro přístup ke Kahootu na procvičení
+      </a>
     </div>
   </body>
 </html>

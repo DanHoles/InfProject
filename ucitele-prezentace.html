@@ -38,7 +38,9 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        height: 100px; 
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100px;
       }
       .intro-section {
         padding: 50px 0;
@@ -55,6 +57,17 @@
         color: #333;
         line-height: 1.6;
       }
+      .material-link {
+        font-size: 18px;
+        margin-top: 10px;
+        display: block;
+        color: #800080;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .material-link:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -63,7 +76,7 @@
       <a href="materialy.pro.ucitele.html" class="btn-back">Zpět</a>
 
       <!-- Obrázek loga uprostřed -->
-      <img src="CoJeToLLM log.png" alt="Logo CoJeToLLM" class="logo">
+      <a href="index.html"><img src="CoJeToLLM log.png" alt="Logo CoJeToLLM" class="logo"></a>
     </nav>
 
     <div class="intro-section">
@@ -71,6 +84,21 @@
       <p>
         Zde najdete všechny prezentace potřebné k vyučování principů strojového učení.
       </p>
+    </div>
+    <div class="container">
+      <a href="https://docs.google.com/presentation/d/1t2HrWGpObqoVsIp122ipDQLjZXFIZB0sXXeXnmSnFuA/edit?usp=sharing" class="material-link" target="_blank">
+        Klikněte zde pro přístup k prezentaci na Supervised learning
+      </a>
+    </div>
+    <div class="container">
+      <a href="https://docs.google.com/presentation/d/1fiIx9W5khZZLXhsRyYOMbq2fCqIuzxjyLRB_2woe6m0/edit?usp=sharing" class="material-link" target="_blank">
+        Klikněte zde pro přístup k prezentaci na Unsupervised learning
+      </a>
+    </div>
+    <div class="container">
+      <a href="https://docs.google.com/presentation/d/1SbiZT19zBvN489uXVVflhUbJ8vCDyT3k7LacRx81cbE/edit?usp=sharing" class="material-link" target="_blank">
+        Klikněte zde pro přístup k prezentaci na Reinforcement learning
+      </a>
     </div>
   </body>
 </html>
