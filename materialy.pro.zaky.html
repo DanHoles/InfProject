@@ -163,7 +163,7 @@
        border-radius: 5px;
         padding: 10px 15px;
        text-decoration: none;
-       margin-left: 20px; 
+       margin-left: 60px; 
       }
       .navbar-custom .navbar-brand {
         color: white;
@@ -174,6 +174,45 @@
         background-color: #c28ac2;
         text-decoration: none;
       }
+
+      .navbar-toggler {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        outline: none !important;
+        box-shadow: none !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 25px;
+        padding: 0;
+      }
+
+      .navbar-toggler span,
+      .navbar-toggler::before,
+      .navbar-toggler::after {
+        content: '';
+        background-color: white;
+        height: 3px;
+        width: 100%;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+      }
+
+      .navbar-toggler::before {
+        position: relative;
+        top: 0;
+      }
+
+      .navbar-toggler::after {
+        position: relative;
+        bottom: 0;
+      }
       .button-container .btn {
         flex: 1;
         height: 40px;
@@ -183,11 +222,66 @@
         border-radius: 0;
         outline: none;
       }
+      .sidebar {
+  position: fixed;
+  left: -250px;
+  top: 100px; /* Posune začátek lišty pod horní lištu */
+  width: 250px;
+  height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
+  background-color: #800080;
+  color: white;
+  transition: all 0.3s;
+  padding-top: 20px;
+  z-index: 9999;
+}
+
+.sidebar.open {
+  left: 0;
+  box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3);
+}
+
+      .sidebar-list {
+        list-style-type: none;
+        padding: 0 10px 0; /* Posune tlačítka výš */
+      }
+
+.sidebar-list li {
+  padding: 0 10px 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Nadpis 1 pro hlavní kategorie */
+.sidebar-list li a.main-category {
+  color: white;
+  font-size: 20px; /* Větší písmo pro nadpis 1 */
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+/* Nadpis 2 pro podkategorie */
+.sidebar-list li a.sub-category {
+  color: white;
+  font-size: 18px; /* Menší písmo pro nadpis 2 */
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  padding-left: 20px; /* Odsazení pro podkategorie */
+}
+
+.sidebar-list li a:hover {
+  background-color: #c28ac2;
+}
     </style>
   </head>
   <body>
     <!-- Horní lišta s tlačítkem zpět a logem -->
     <nav class="navbar navbar-custom">
+      <!-- Tlačítko menu vlevo -->
+      <button class="navbar-toggler" type="button">
+        <span></span>
+      </button>
 
       <!-- Tlačítko vlevo pro návrat -->
       <a href="index.html" class="btn-back">Zpět na hlavní stránku</a>
@@ -195,6 +289,26 @@
       <!-- Logo uprostřed -->
       <a href="index.html"><img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo"></a>
     </nav>
+
+  <!-- Tlačítko pro otevření boční lišty -->
+  <button class="navbar-toggler" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+    <span></span>
+  </button>
+  <!-- Boční lišta -->
+  <div class="sidebar" id="sidebar">
+    <ul class="sidebar-list">
+      <li><a href="index.html" class="main-category">Hlavní stránka</a></li>
+      <li><a href="materialy.pro.zaky.html" class="main-category">Materiály pro žáky</a></li>
+      <li><a href="zaci-studijnimaterialy.html" class="sub-category">Studijní materiály pro žáky</a></li>
+      <li><a href="zaci-procviceni.html" class="sub-category">Procvičení pro žáky</a></li>
+      <li><a href="materialy.pro.ucitele.html" class="main-category">Materiály pro učitele</a></li>
+      <li><a href="ucitele-studijni+vyukovematerialy.html" class="sub-category">Studijní materiály pro učitele</a></li>
+      <li><a href="ucitele-prezentace.html" class="sub-category">Prezentace pro učitele</a></li>
+      <li><a href="ucitele-procviceni.html" class="sub-category">Procvičení pro učitele</a></li>
+      <li><a href="ucitele-testy.html" class="sub-category">Testy pro učitele</a></li> 
+    </ul>
+  </div>
+  
 
     <!-- Dvě tlačítka pro studijní materiály a procvičení -->
     <div class="button-container">
@@ -407,9 +521,6 @@
     <p><strong>Příklad:</strong> Google Translate nebo hlasoví asistenti jako Siri.</p>
   </div>
 </div>
-
-
-
 <!-- Sekce o Neuronových sítích -->
 <div class="classification-container">
   <div class="fade-in">
@@ -463,6 +574,60 @@
     <img src="airisks.webp" alt="Rizika AI">
   </div>
 </div>
+<!-- Sekce o Hlubším pohledu do LLM -->
+<div class="ml-section">
+  <div class="container">
+    <h2 class="ml-h2">Hlubší pohled do LLM</h2>
+  </div>
+</div>
+<div class="ml-container">
+  <div class="ml-card fade-in">
+    <h4>Architektura Transformer</h4>
+    <p>
+      Moderní LLM využívají architekturu zvanou <strong>Transformer</strong>. Tento model umožňuje efektivní zpracování textu pomocí mechanismu zvaného attention, který určuje, které části textu jsou pro analýzu nejdůležitější.
+    </p>
+    <p><strong>Příklad:</strong> GPT modely využívají Transformer k pochopení kontextu v dlouhých větách.</p>
+  </div>
+
+  <div class="ml-card fade-in">
+    <h4>Tokenizace a embedding</h4>
+    <p>
+      LLM rozdělují text na menší části zvané <strong>tokeny</strong>, které poté převádějí na číselné reprezentace (embeddingy). Tento proces umožňuje modelu rozpoznat význam a souvislosti mezi slovy.
+    </p>
+    <p><strong>Příklad:</strong> Slova "kočka" a "pes" mají v embeddingovém prostoru blízko k sobě.</p>
+  </div>
+
+  <div class="ml-card fade-in">
+    <h4>Fine-tuning a adaptace</h4>
+    <p>
+      Po základním trénování mohou být LLM <strong>doladěny</strong> (fine-tuned) na specifické úkoly, jako je lékařská diagnostika nebo právní analýza, aby dosáhly vyšší přesnosti v konkrétní doméně.
+    </p>
+    <p><strong>Příklad:</strong> GPT-4 může být doladěn pro generování programátorských odpovědí.</p>
+  </div>
+</div>
+<!-- Sekce o Transformátorech -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Jak fungují transformery?</h4>
+    <p>
+      <strong>Transformery</strong> jsou základním stavebním kamenem moderních LLM, jako je GPT. Tento model umožňuje efektivní zpracování textu tím, že se soustředí na vztahy mezi slovy v textu a jejich vzory.
+    </p>
+    <p>
+      Transformer se skládá z několika klíčových komponent, které mu umožňují efektivně zpracovávat dlouhé texty a chápat jejich význam:
+      <ul>
+        <li><strong>Self-attention mechanismus:</strong> Tento mechanismus umožňuje modelu analyzovat slova v kontextu celého textu, nikoli jen jednotlivě.</li>
+        <li><strong>Vrstvy dekodéru a enkodéru:</strong> Enkodér zpracovává vstupní text a dekodér generuje výstup na základě naučených vzorců.</li>
+        <li><strong>Paralelní zpracování:</strong> Na rozdíl od starších modelů, které zpracovávaly slovo za slovem, transformery dokážou zpracovávat všechny slova najednou, což urychluje trénování.</li>
+      </ul>
+    </p>
+    <p>
+      <strong>Příklad:</strong> Pokud máme větu "Pes běží rychle", transformer se zaměří na vztah mezi "pes" a "běží" a pochopí, že jde o akci vykonanou zvířetem.
+    </p>
+  </div>
+  <div class="fade-in">
+    <img src="transformer-example.png" alt="Příklad transformátoru" />
+  </div>
+</div>
 
 
 <script>
@@ -483,6 +648,34 @@
   };
   window.addEventListener('scroll', checkVisibility);
   checkVisibility();
-</script>
+  </script>
+  
+  <script>
+    let lastScrollTop = 0;
+    let isSidebarVisible = false;
+  
+    window.addEventListener('scroll', function () {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > lastScrollTop && isSidebarVisible) {
+        document.querySelector('.navbar-toggler').click();
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  
+    document.querySelector('.navbar-toggler').addEventListener('click', function (event) {
+      const sidebar = document.getElementById('sidebar');
+      event.stopPropagation();
+      sidebar.classList.toggle('open');
+      isSidebarVisible = sidebar.classList.contains('open');
+    });
+  
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      if (isSidebarVisible && !sidebar.contains(event.target) && event.target !== navbarToggler) {
+        navbarToggler.click();
+      }
+    });
+  </script>
   </body>
 </html>

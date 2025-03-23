@@ -29,6 +29,10 @@
         border-radius: 5px;
         padding: 5px 15px;
         text-decoration: none;
+        position: absolute;
+        left: 60px; /* Move button further to the right */
+        top: 50%;
+        transform: translateY(-50%);
       }
       .navbar-custom .btn-back:hover {
         background-color: #c28ac2;
@@ -40,6 +44,41 @@
         transform: translate(-50%, -50%);
         top: 50%;
         height: 100px;
+      }
+      .navbar-toggler {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        outline: none !important;
+        box-shadow: none !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 25px;
+        padding: 0;
+      }
+      .navbar-toggler span,
+      .navbar-toggler::before,
+      .navbar-toggler::after {
+        content: '';
+        background-color: white;
+        height: 3px;
+        width: 100%;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+      }
+      .navbar-toggler::before {
+        position: relative;
+        top: 0;
+      }
+      .navbar-toggler::after {
+        position: relative;
+        bottom: 0;
       }
       .intro-section {
         padding: 50px 0;
@@ -70,6 +109,57 @@
       .material-link:hover {
         text-decoration: underline;
       }
+      .sidebar {
+  position: fixed;
+  left: -250px;
+  top: 100px; /* Posune začátek lišty pod horní lištu */
+  width: 250px;
+  height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
+  background-color: #800080;
+  color: white;
+  transition: all 0.3s;
+  padding-top: 20px;
+  z-index: 9999;
+}
+
+.sidebar.open {
+  left: 0;
+  box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3);
+}
+
+      .sidebar-list {
+        list-style-type: none;
+        padding: 0 10px 0; /* Posune tlačítka výš */
+      }
+
+.sidebar-list li {
+  padding: 0 10px 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Nadpis 1 pro hlavní kategorie */
+.sidebar-list li a.main-category {
+  color: white;
+  font-size: 20px; /* Větší písmo pro nadpis 1 */
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+/* Nadpis 2 pro podkategorie */
+.sidebar-list li a.sub-category {
+  color: white;
+  font-size: 18px; /* Menší písmo pro nadpis 2 */
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  padding-left: 20px; /* Odsazení pro podkategorie */
+}
+
+.sidebar-list li a:hover {
+  background-color: #c28ac2;
+}
     </style>
   </head>
   <body>
@@ -77,6 +167,25 @@
       <!-- Tlačítko vlevo pro návrat -->
       <a href="materialy.pro.zaky.html" class="btn-back">Zpět</a>
       
+      <!-- Tlačítko pro otevření boční lišty -->
+      <button class="navbar-toggler" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+        <span></span>
+      </button>
+      <!-- Boční lišta -->
+  <div class="sidebar" id="sidebar">
+    <ul class="sidebar-list">
+      <li><a href="index.html" class="main-category">Hlavní stránka</a></li>
+      <li><a href="materialy.pro.zaky.html" class="main-category">Materiály pro žáky</a></li>
+      <li><a href="zaci-studijnimaterialy.html" class="sub-category">Studijní materiály pro žáky</a></li>
+      <li><a href="zaci-procviceni.html" class="sub-category">Procvičení pro žáky</a></li>
+      <li><a href="materialy.pro.ucitele.html" class="main-category">Materiály pro učitele</a></li>
+      <li><a href="ucitele-studijni+vyukovematerialy.html" class="sub-category">Studijní materiály pro učitele</a></li>
+      <li><a href="ucitele-prezentace.html" class="sub-category">Prezentace pro učitele</a></li>
+      <li><a href="ucitele-procviceni.html" class="sub-category">Procvičení pro učitele</a></li>
+      <li><a href="ucitele-testy.html" class="sub-category">Testy pro učitele</a></li> 
+    </ul>
+  </div>
+
       <!-- Obrázek loga uprostřed -->
       <a href="index.html"><img src="CoJeToLLM log.png" alt="Logo CoJeToLLM" class="logo"></a>
     </nav>
@@ -102,5 +211,32 @@
         Klikněte zde pro přístup ke Kahootu na procvičení
       </a>
     </div>
+    <script>
+      let lastScrollTop = 0;
+      let isSidebarVisible = false;
+
+      window.addEventListener('scroll', function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop && isSidebarVisible) {
+          document.querySelector('.navbar-toggler').click();
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      });
+
+      document.querySelector('.navbar-toggler').addEventListener('click', function (event) {
+        const sidebar = document.getElementById('sidebar');
+        event.stopPropagation();
+        sidebar.classList.toggle('open');
+        isSidebarVisible = sidebar.classList.contains('open');
+      });
+
+      document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        if (isSidebarVisible && !sidebar.contains(event.target) && event.target !== navbarToggler) {
+          navbarToggler.click();
+        }
+      });
+    </script>
   </body>
 </html>
