@@ -574,60 +574,98 @@
     <img src="airisks.webp" alt="Rizika AI">
   </div>
 </div>
+
 <!-- Sekce o Hlubším pohledu do LLM -->
 <div class="ml-section">
   <div class="container">
     <h2 class="ml-h2">Hlubší pohled do LLM</h2>
   </div>
 </div>
-<div class="ml-container">
-  <div class="ml-card fade-in">
-    <h4>Architektura Transformer</h4>
-    <p>
-      Moderní LLM využívají architekturu zvanou <strong>Transformer</strong>. Tento model umožňuje efektivní zpracování textu pomocí mechanismu zvaného attention, který určuje, které části textu jsou pro analýzu nejdůležitější.
-    </p>
-    <p><strong>Příklad:</strong> GPT modely využívají Transformer k pochopení kontextu v dlouhých větách.</p>
-  </div>
 
-  <div class="ml-card fade-in">
-    <h4>Tokenizace a embedding</h4>
-    <p>
-      LLM rozdělují text na menší části zvané <strong>tokeny</strong>, které poté převádějí na číselné reprezentace (embeddingy). Tento proces umožňuje modelu rozpoznat význam a souvislosti mezi slovy.
-    </p>
-    <p><strong>Příklad:</strong> Slova "kočka" a "pes" mají v embeddingovém prostoru blízko k sobě.</p>
-  </div>
-
-  <div class="ml-card fade-in">
-    <h4>Fine-tuning a adaptace</h4>
-    <p>
-      Po základním trénování mohou být LLM <strong>doladěny</strong> (fine-tuned) na specifické úkoly, jako je lékařská diagnostika nebo právní analýza, aby dosáhly vyšší přesnosti v konkrétní doméně.
-    </p>
-    <p><strong>Příklad:</strong> GPT-4 může být doladěn pro generování programátorských odpovědí.</p>
-  </div>
-</div>
-<!-- Sekce o Transformátorech -->
+<!-- Sekce o hlubším pohledu do LLM -->
 <div class="classification-container">
   <div class="fade-in">
-    <h4>Jak fungují transformery?</h4>
+    <h4>Jak model pracuje s textem?</h4>
     <p>
-      <strong>Transformery</strong> jsou základním stavebním kamenem moderních LLM, jako je GPT. Tento model umožňuje efektivní zpracování textu tím, že se soustředí na vztahy mezi slovy v textu a jejich vzory.
+      Než jazykový model začne generovat odpovědi, musí převést vstupní text na číselnou podobu pomocí <strong>tokenizace</strong>. Tokeny jsou základní jednotky textu – mohou to být celá slova, části slov nebo jednotlivé znaky.
     </p>
-    <p>
-      Transformer se skládá z několika klíčových komponent, které mu umožňují efektivně zpracovávat dlouhé texty a chápat jejich význam:
-      <ul>
-        <li><strong>Self-attention mechanismus:</strong> Tento mechanismus umožňuje modelu analyzovat slova v kontextu celého textu, nikoli jen jednotlivě.</li>
-        <li><strong>Vrstvy dekodéru a enkodéru:</strong> Enkodér zpracovává vstupní text a dekodér generuje výstup na základě naučených vzorců.</li>
-        <li><strong>Paralelní zpracování:</strong> Na rozdíl od starších modelů, které zpracovávaly slovo za slovem, transformery dokážou zpracovávat všechny slova najednou, což urychluje trénování.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>Příklad:</strong> Pokud máme větu "Pes běží rychle", transformer se zaměří na vztah mezi "pes" a "běží" a pochopí, že jde o akci vykonanou zvířetem.
-    </p>
+    <p><strong>Příklady tokenizace:</strong></p>
+    <ul>
+      <li><strong>Word-based:</strong> Tokenem je celé slovo (např. "Jazykové" → jeden token).</li>
+      <li><strong>Character-based:</strong> Každé písmeno je token (např. "J", "a", "z", "y"...).</li>
+      <li><strong>Subword-based (BPE):</strong> Časté části slov tvoří tokeny (např. "Jazyk" + "ové").</li>
+    </ul>
   </div>
   <div class="fade-in">
-    <img src="transformer-example.png" alt="Příklad transformátoru" />
+    <img src="tokenization.png" alt="Tokenizace textu">
   </div>
 </div>
+
+<!-- Sekce o vektorové reprezentaci -->
+<div class="classification-container">
+  <div class="fade-in">
+    <img src="word_embedding.png" alt="Vektorová reprezentace">
+  </div>
+  <div class="fade-in">
+    <h4>Vektorová reprezentace tokenů</h4>
+    <p>
+      Po tokenizaci model přiřadí každému tokenu <strong>vektor</strong> – řadu čísel, která reprezentují jeho význam. Tato čísla jsou naučená tak, aby podobná slova měla blízké vektory.
+    </p>
+    <p><strong>Příklad:</strong> Slova "pes" a "kočka" budou mít blízké vektory, zatímco "pes" a "auto" budou odlišné.</p>
+  </div>
+</div>
+
+<!-- Sekce o mechanismu self-attention -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Jak model chápe kontext?</h4>
+    <p>
+      Klíčovou součástí LLM je mechanismus <strong>self-attention</strong>, který analyzuje vztahy mezi slovy v celé větě. Každý token je reprezentován třemi vektory:
+    </p>
+    <ul>
+      <li><strong>Query (Q):</strong> Ptá se na vztah k ostatním tokenům.</li>
+      <li><strong>Key (K):</strong> Reprezentuje obsah tokenu.</li>
+      <li><strong>Value (V):</strong> Obsahuje informace, které budou použity pro generování odpovědi.</li>
+    </ul>
+    <p>Model porovnává Query a Key pomocí skalárního součinu a výsledné váhy určují důležitost jednotlivých slov.</p>
+  </div>
+  <div class="fade-in">
+    <img src="self_attention.png" alt="Mechanismus self-attention">
+  </div>
+</div>
+
+<!-- Sekce o trojúhelníkové masce -->
+<div class="classification-container">
+  <div class="fade-in">
+    <img src="attention_mask.png" alt="Maskování v transformerech">
+  </div>
+  <div class="fade-in">
+    <h4>Proč model nesmí vidět budoucí slova?</h4>
+    <p>
+      LLM modely generují text postupně a nesmí "podvádět" tím, že by znaly slova, která teprve přijdou. Proto používají <strong>trojúhelníkovou maskovací matici</strong>, která zajistí, že každý token vidí pouze předchozí tokeny.
+    </p>
+    <p><strong>Příklad:</strong> Když model čte větu "Dnes je krásný ...", při predikci slova "den" vidí jen "Dnes je krásný", ale nezná zbytek věty.</p>
+  </div>
+</div>
+
+<!-- Sekce o generování textu -->
+<div class="classification-container">
+  <div class="fade-in">
+    <h4>Jak model vybíra další slovo?</h4>
+    <p>
+      Po výkonu self-attention model vytvoří skóre pro každý možný následující token. Následně probíhá výběr:
+    </p>
+    <ul>
+      <li><strong>Softmax funkce:</strong> Převede skóre na pravděpodobnosti.</li>
+      <li><strong>Nejpravděpodobnější token:</strong> Model vybere token s nejvyšší pravděpodobností nebo použije metodu, která přidá náhodnost (např. Top-k sampling).</li>
+    </ul>
+    <p><strong>Příklad:</strong> Model čte větu "Mám rád" a vybíra mezi tokeny "čokoládu" (70%), "kávu" (20%) a "zmrzlinu" (10%). Nejčastěji zvolí "čokoládu", ale může se rozhodnout i jinak.</p>
+  </div>
+  <div class="fade-in">
+    <img src="token_prediction.png" alt="Predikce tokenů">
+  </div>
+</div>
+
 
 
 <script>
