@@ -171,91 +171,87 @@
         gap: 20px; 
         max-width: 1200px;
         margin: 0 auto; 
-}
+      }
       .classification-container .fade-in {
         width: 45%;
         margin-right: 20px; 
-}
+      }
       .classification-container img {
         width: 100%;
         max-width: 400px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.features-container {
-    display: flex;
-    justify-content: center; /* Zarovná seznam na střed obrazovky */
-  }
+      }
+      .features-container {
+        display: flex;
+        justify-content: center; /* Zarovná seznam na střed obrazovky */
+      }
+      .features-list {
+        list-style-type: none; /* Odstraní černé tečky */
+        padding: 0; /* Zruší výchozí odsazení seznamu */
+        text-align: left; /* Zarovná text v seznamu doleva */
+      }
+      .features-list li {
+        margin-bottom: 8px; /* Přidá mezery mezi body pro lepší čitelnost */
+        font-size: 18px; /* Zvýší velikost textu o 2px */
+      }
+      .info-section {
+        margin-left: 40px; /* Posun od levého okraje */
+        white-space: normal; /* Zajistí, že text nebude skákat na další řádky zbytečně */
+      }
+      .text-link:hover {
+        text-decoration: underline; /* Zvýraznění při najetí myší */
+      }
+      .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 100px; /* Posune začátek lišty pod horní lištu */
+        width: 250px;
+        height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
+        background-color: #800080;
+        color: white;
+        transition: all 0.3s;
+        padding-top: 20px;
+        z-index: 9999;
+      }
 
-  .features-list {
-    list-style-type: none; /* Odstraní černé tečky */
-    padding: 0; /* Zruší výchozí odsazení seznamu */
-    text-align: left; /* Zarovná text v seznamu doleva */
-  }
-
-  .features-list li {
-    margin-bottom: 8px; /* Přidá mezery mezi body pro lepší čitelnost */
-    font-size: 18px; /* Zvýší velikost textu o 2px */
-  }
-  .info-section {
-  margin-left: 40px; /* Posun od levého okraje */
-  white-space: normal; /* Zajistí, že text nebude skákat na další řádky zbytečně */
-}
-.text-link:hover {
-  text-decoration: underline; /* Zvýraznění při najetí myší */
-}
-
-.sidebar {
-  position: fixed;
-  left: -250px;
-  top: 100px; /* Posune začátek lišty pod horní lištu */
-  width: 250px;
-  height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
-  background-color: #800080;
-  color: white;
-  transition: all 0.3s;
-  padding-top: 20px;
-  z-index: 9999;
-}
-
-.sidebar.open {
-  left: 0;
-  box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3); 
-}
-
+      .sidebar.open {
+        left: 0;
+        box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3); 
+      }
       .sidebar-list {
         list-style-type: none;
         padding: 0 10px 0; /* Posune tlačítka výš */
       }
 
-.sidebar-list li {
-  padding: 0 10px 5px;
-  border-bottom: 1px solid #ddd;
-}
+      .sidebar-list li {
+        padding: 0 10px 5px;
+        border-bottom: 1px solid #ddd;
+      }
 
 /* Nadpis 1 pro hlavní kategorie */
-.sidebar-list li a.main-category {
-  color: white;
-  font-size: 20px; /* Větší písmo pro nadpis 1 */
-  font-weight: bold;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-}
+      .sidebar-list li a.main-category {
+        color: white;
+        font-size: 20px; /* Větší písmo pro nadpis 1 */
+        font-weight: bold;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+      }
 
-/* Nadpis 2 pro podkategorie */
-.sidebar-list li a.sub-category {
-  color: white;
-  font-size: 18px; /* Menší písmo pro nadpis 2 */
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  padding-left: 20px; /* Odsazení pro podkategorie */
-}
+      /* Nadpis 2 pro podkategorie */
+      .sidebar-list li a.sub-category {
+        color: white;
+        font-size: 18px; /* Menší písmo pro nadpis 2 */
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        padding-left: 20px; /* Odsazení pro podkategorie */
+      }
 
-.sidebar-list li a:hover {
-  background-color: #c28ac2;
-}
+      .sidebar-list li a:hover {
+        background-color: #c28ac2;
+      }
     </style>
   </head>
   <body>
@@ -299,13 +295,13 @@
   
       <div class="features-container">
         <ul class="features-list">
-          <li>✅ <strong>Srozumitelná vysvětlení</strong> klíčových pojmů a principů ML a velkých jazykových modelů (LLM).</li>
-          <li>✅ <strong>Testy</strong> na procvičení svých znalostí.</li>
-          <li>✅ <strong>Materiály pro učitele</strong> – pracovní listy, testy, prezentace a vše, co pomůže s výukou ve třídě.</li>
+          <li><strong>Srozumitelná vysvětlení</strong> klíčových pojmů a principů ML a velkých jazykových modelů (LLM).</li>
+          <li><strong>Testy</strong> na procvičení svých znalostí.</li>
+          <li><strong>Materiály pro učitele</strong> – pracovní listy, testy, prezentace a vše, co pomůže s výukou ve třídě.</li>
         </ul>
       </div>
   
-      <p>💡 <strong>Proč je to důležité?</strong> Podívej se na 9 důvodů níže a zjisti, proč by tě ML mělo zajímat! 👇</p>
+      <p><strong>Proč je to důležité?</strong> Podívej se na 9 důvodů níže a zjisti, proč by tě ML mělo zajímat!</p>
     </div>
   </div>
 

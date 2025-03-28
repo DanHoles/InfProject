@@ -234,22 +234,18 @@
   padding-top: 20px;
   z-index: 9999;
 }
-
 .sidebar.open {
   left: 0;
   box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3);
 }
-
-      .sidebar-list {
-        list-style-type: none;
-        padding: 0 10px 0; /* Posune tlačítka výš */
-      }
-
+.sidebar-list {
+  list-style-type: none;
+  padding: 0 10px 0; /* Posune tlačítka výš */
+}
 .sidebar-list li {
   padding: 0 10px 5px;
   border-bottom: 1px solid #ddd;
 }
-
 /* Nadpis 1 pro hlavní kategorie */
 .sidebar-list li a.main-category {
   color: white;
@@ -259,7 +255,6 @@
   display: block;
   padding: 10px;
 }
-
 /* Nadpis 2 pro podkategorie */
 .sidebar-list li a.sub-category {
   color: white;
@@ -269,9 +264,12 @@
   padding: 10px;
   padding-left: 20px; /* Odsazení pro podkategorie */
 }
-
 .sidebar-list li a:hover {
   background-color: #c28ac2;
+}
+.resize-img {
+  width: 35% !important;
+  height: auto !important;
 }
     </style>
   </head>
@@ -587,31 +585,41 @@
   <div class="fade-in">
     <h4>Jak model pracuje s textem?</h4>
     <p>
-      Než jazykový model začne generovat odpovědi, musí převést vstupní text na číselnou podobu pomocí <strong>tokenizace</strong>. Tokeny jsou základní jednotky textu – mohou to být celá slova, části slov nebo jednotlivé znaky.
+      Než jazykový model začne generovat odpovědi, musí převést vstupní text na číselnou podobu. Tento proces se nazývá <strong>tokenizace</strong> a je zásadní pro správné pochopení textu. Tokeny jsou základními jednotkami textu a mohou to být celé slovo, část slova nebo dokonce jednotlivé znaky.
     </p>
-    <p><strong>Příklady tokenizace:</strong></p>
+    <p>
+      Tokenizace zajišťuje, že text bude rozdělen na menší části, které model může analyzovat. To umožňuje modelu pracovat s různými jazyky a přizpůsobit se jejich specifickým pravidlům. Jaký způsob tokenizace model použije, závisí na konkrétní implementaci, ale obvykle zahrnuje tři hlavní přístupy:
+    </p>
     <ul>
-      <li><strong>Word-based:</strong> Tokenem je celé slovo (např. "Jazykové" → jeden token).</li>
-      <li><strong>Character-based:</strong> Každé písmeno je token (např. "J", "a", "z", "y"...).</li>
-      <li><strong>Subword-based (BPE):</strong> Časté části slov tvoří tokeny (např. "Jazyk" + "ové").</li>
+      <li><strong>Word-based:</strong> Tokenem je celé slovo. Tento přístup je jednoduchý, ale ne vždy efektivní, protože slova, která se vyskytují vzácně, mohou modelu způsobit problémy. Například slovo "Jazykové" je tokenizováno jako jedno slovo.</li>
+      <li><strong>Character-based:</strong> Každé písmeno nebo znak je token. Tento přístup dává modelu větší flexibilitu, protože může pracovat s neznámými slovy, ale bývá náročnější na výpočetní výkon. Například slovo "Jazykové" by bylo rozděleno na jednotlivé znaky: "J", "a", "z", "y", "k", "o", "v", "é".</li>
+      <li><strong>Subword-based (BPE):</strong> Tokenizace na základě částí slov, kde časté morfémy tvoří tokeny. Tento přístup je kompromisem mezi efektivitou a flexibilitou a umožňuje modelu snadněji pracovat s novými slovy, například "Jazyk" + "ové".</li>
     </ul>
+    <p>
+      Výběr vhodného typu tokenizace má zásadní vliv na efektivitu modelu, protože správné tokeny pomáhají modelu lépe chápat význam a vztahy mezi slovy.
+    </p>
   </div>
   <div class="fade-in">
-    <img src="tokenization.png" alt="Tokenizace textu">
+    <img src="Types-of-Tokenization-in-NLP.jpg" alt="Tokenizace textu" >
   </div>
 </div>
 
 <!-- Sekce o vektorové reprezentaci -->
 <div class="classification-container">
   <div class="fade-in">
-    <img src="word_embedding.png" alt="Vektorová reprezentace">
+    <img src="vectors llm.png" alt="Vektorová reprezentace">
   </div>
   <div class="fade-in">
     <h4>Vektorová reprezentace tokenů</h4>
     <p>
-      Po tokenizaci model přiřadí každému tokenu <strong>vektor</strong> – řadu čísel, která reprezentují jeho význam. Tato čísla jsou naučená tak, aby podobná slova měla blízké vektory.
+      Po tokenizaci textu model přiřadí každému tokenu <strong>vektor</strong>, což je posloupnost čísel, která reprezentuje jeho význam v kontextu jazyka. Tyto vektory jsou naučené tak, aby slova s podobným významem měla blízké vektory, zatímco slova s odlišným významem budou mít vektory od sebe vzdálené.
     </p>
-    <p><strong>Příklad:</strong> Slova "pes" a "kočka" budou mít blízké vektory, zatímco "pes" a "auto" budou odlišné.</p>
+    <p>
+      Tento proces se nazývá <strong>word embedding</strong>. Modely se obvykle učí na velkých textech a přiřazují vektorové reprezentace slovům, která se často vyskytují ve stejných kontextech. Například slova jako "pes" a "kočka" mají podobné vektory, protože jsou často zmíněna v podobných situacích (např. "zvíře"). Naopak "pes" a "auto" budou mít vektory, které jsou si vzdálenější, protože se obvykle objevují v odlišných kontextech (např. "doprava" vs. "zvíře").
+    </p>
+    <p>
+      Tato technika je základem pro různé aplikace v NLP, jako je strojový překlad nebo analýza sentimentu. Díky vektorovým reprezentacím mohou modely lépe chápat význam slov v různých kontextech a vztahy mezi nimi.
+    </p>
   </div>
 </div>
 
@@ -620,53 +628,60 @@
   <div class="fade-in">
     <h4>Jak model chápe kontext?</h4>
     <p>
-      Klíčovou součástí LLM je mechanismus <strong>self-attention</strong>, který analyzuje vztahy mezi slovy v celé větě. Každý token je reprezentován třemi vektory:
+      K pochopení významu slova v daném textu využívá jazykový model mechanismus <strong>self-attention</strong>. Tento mechanismus je klíčový pro analýzu vztahů mezi slovy v celé větě. Každé slovo je reprezentováno třemi vektory, které pomáhají modelu rozhodnout, jak jsou slova propojena:
     </p>
     <ul>
-      <li><strong>Query (Q):</strong> Ptá se na vztah k ostatním tokenům.</li>
-      <li><strong>Key (K):</strong> Reprezentuje obsah tokenu.</li>
-      <li><strong>Value (V):</strong> Obsahuje informace, které budou použity pro generování odpovědi.</li>
+      <li><strong>Query (Q):</strong> Tento vektor obsahuje informaci o tom, na co se daný token "ptá" ve vztahu k ostatním tokenům. Například pokud máme slovo "domek", může se tento vektor zaměřit na slova, která se týkají stavby.</li>
+      <li><strong>Key (K):</strong> Tento vektor představuje obsah tokenu. U tokenu "domek" to bude informace o jeho významu v daném kontextu.</li>
+      <li><strong>Value (V):</strong> Tento vektor obsahuje konkrétní informace, které jsou využívány pro generování odpovědí. V případě slova "domek" to mohou být všechny související informace o jeho použití v textu.</li>
     </ul>
-    <p>Model porovnává Query a Key pomocí skalárního součinu a výsledné váhy určují důležitost jednotlivých slov.</p>
+    <p>
+      Model poté porovnává <strong>Query</strong> s <strong>Key</strong> pomocí skalárního součinu. Tento proces umožňuje modelu určit, jak důležitý je každý token pro daný kontext. Výsledek porovnání se používá k přiřazení váhy jednotlivým tokenům a k určení jejich relevance pro generování odpovědi.
+    </p>
   </div>
   <div class="fade-in">
-    <img src="self_attention.png" alt="Mechanismus self-attention">
+    <img src="contextual_mouse_transparent_2.png" alt="Mechanismus self-attention">  
   </div>
 </div>
 
 <!-- Sekce o trojúhelníkové masce -->
 <div class="classification-container">
   <div class="fade-in">
-    <img src="attention_mask.png" alt="Maskování v transformerech">
+    <img src="matrix-iscprograms.png" alt="Maskování v transformerech">
   </div>
   <div class="fade-in">
     <h4>Proč model nesmí vidět budoucí slova?</h4>
     <p>
-      LLM modely generují text postupně a nesmí "podvádět" tím, že by znaly slova, která teprve přijdou. Proto používají <strong>trojúhelníkovou maskovací matici</strong>, která zajistí, že každý token vidí pouze předchozí tokeny.
+      Jazykové modely, jako jsou LLM, generují text postupně. Aby nedošlo k "podvádění", kdy by model mohl použít slova, která ještě neexistují, používají tzv. <strong>trojúhelníkovou masku</strong>. Tato maska zajistí, že každý token během generování textu vidí pouze slova, která byla zpracována před ním, nikoli ta, která teprve přijdou.
     </p>
-    <p><strong>Příklad:</strong> Když model čte větu "Dnes je krásný ...", při predikci slova "den" vidí jen "Dnes je krásný", ale nezná zbytek věty.</p>
+    <p>
+      <strong>Příklad:</strong> Pokud model čte větu "Dnes je krásný ...", při predikci slova "den" má k dispozici pouze text "Dnes je krásný", ale nemůže nahlédnout do dalších slov, která budou následovat. To zajišťuje, že generování textu je v souladu s postupným procesem, jak by člověk napsal větu.
+    </p>
   </div>
 </div>
 
 <!-- Sekce o generování textu -->
 <div class="classification-container">
   <div class="fade-in">
-    <h4>Jak model vybíra další slovo?</h4>
+    <h4>Jak model vybírá další slovo?</h4>
     <p>
-      Po výkonu self-attention model vytvoří skóre pro každý možný následující token. Následně probíhá výběr:
+      Po provedení analýzy s použitím mechanismu self-attention model vytvoří skóre pro každý možný následující token. Tento proces zahrnuje volbu mezi několika kandidáty, kdy model vybere token s nejvyšší pravděpodobností na základě svého aktuálního stavu.
+    </p>
+    <p>
+      Výběr probíhá za použití dvou hlavních metod:
     </p>
     <ul>
-      <li><strong>Softmax funkce:</strong> Převede skóre na pravděpodobnosti.</li>
-      <li><strong>Nejpravděpodobnější token:</strong> Model vybere token s nejvyšší pravděpodobností nebo použije metodu, která přidá náhodnost (např. Top-k sampling).</li>
+      <li><strong>Softmax funkce:</strong> Tato funkce převádí skóre na pravděpodobnosti. Umožňuje modelu přiřadit každému tokenu hodnotu, která vyjadřuje, jak pravděpodobné je, že bude následujícím tokenem ve větě.</li>
+      <li><strong>Nejpravděpodobnější token:</strong> Model může vybrat token s nejvyšší pravděpodobností nebo použít metody jako <strong>Top-k sampling</strong>, které přidávají náhodnost do rozhodovacího procesu, čímž zajišťují větší rozmanitost generovaného textu.</li>
     </ul>
-    <p><strong>Příklad:</strong> Model čte větu "Mám rád" a vybíra mezi tokeny "čokoládu" (70%), "kávu" (20%) a "zmrzlinu" (10%). Nejčastěji zvolí "čokoládu", ale může se rozhodnout i jinak.</p>
+    <p>
+      <strong>Příklad:</strong> Pokud model čte větu "Mám rád" a vybírá mezi tokeny "čokoládu" (70%), "kávu" (20%) a "zmrzlinu" (10%), nejčastěji zvolí "čokoládu", ale může si vybrat i jinak, čímž vzniká variabilita v generovaném textu.
+    </p>
   </div>
   <div class="fade-in">
-    <img src="token_prediction.png" alt="Predikce tokenů">
+    <img src="word prediction.jpg" alt="Predikce tokenů">
   </div>
 </div>
-
-
 
 <script>
   const fadeInElements = document.querySelectorAll('.fade-in');
