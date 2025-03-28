@@ -119,8 +119,7 @@
         padding-top: 30px;
         mix-blend-mode: normal;
         background-color: transparent;
-
-        }
+      }
       .image-container img {
         width: 80%;
         max-width: 1000px;
@@ -128,7 +127,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background-color: transparent;
         mix-blend-mode: normal;
-        }
+      }
       .classification-container {
         display: flex;
         align-items: center;
@@ -153,7 +152,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         mix-blend-mode: normal;
         background-color: transparent;
-}
+      }
       .navbar-custom .btn-back {
        color: white;
        font-size: 16px;
@@ -174,7 +173,6 @@
         background-color: #c28ac2;
         text-decoration: none;
       }
-
       .navbar-toggler {
         position: absolute;
         top: 50%;
@@ -191,7 +189,6 @@
         height: 25px;
         padding: 0;
       }
-
       .navbar-toggler span,
       .navbar-toggler::before,
       .navbar-toggler::after {
@@ -203,7 +200,6 @@
         transition: all 0.3s ease-in-out;
         border-radius: 5px;
       }
-
       .navbar-toggler::before {
         position: relative;
         top: 0;
@@ -223,59 +219,58 @@
         outline: none;
       }
       .sidebar {
-  position: fixed;
-  left: -250px;
-  top: 100px; /* Posune začátek lišty pod horní lištu */
-  width: 250px;
-  height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
-  background-color: #800080;
-  color: white;
-  transition: all 0.3s;
-  padding-top: 20px;
-  z-index: 9999;
-}
-.sidebar.open {
-  left: 0;
-  box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3);
-}
-.sidebar-list {
-  list-style-type: none;
-  padding: 0 10px 0; /* Posune tlačítka výš */
-}
-.sidebar-list li {
-  padding: 0 10px 5px;
-  border-bottom: 1px solid #ddd;
-}
-/* Nadpis 1 pro hlavní kategorie */
-.sidebar-list li a.main-category {
-  color: white;
-  font-size: 20px; /* Větší písmo pro nadpis 1 */
-  font-weight: bold;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-}
-/* Nadpis 2 pro podkategorie */
-.sidebar-list li a.sub-category {
-  color: white;
-  font-size: 18px; /* Menší písmo pro nadpis 2 */
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  padding-left: 20px; /* Odsazení pro podkategorie */
-}
-.sidebar-list li a:hover {
-  background-color: #c28ac2;
-}
-.resize-img {
-  width: 35% !important;
-  height: auto !important;
-}
+        position: fixed;
+        left: -250px;
+        top: 100px; 
+        width: 250px;
+        height: calc(100% - 100px); 
+        background-color: #800080;
+        color: white;
+        transition: all 0.3s;
+        padding-top: 20px;
+        z-index: 9999;
+      }
+      .sidebar.open {
+        left: 0;
+        box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3);
+      }
+      .sidebar-list {
+        list-style-type: none;
+        padding: 0 10px 0; 
+      }
+      .sidebar-list li {
+        padding: 0 10px 5px;
+        border-bottom: 1px solid #ddd;
+      }
+      .sidebar-list li a.main-category {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+      }
+      .sidebar-list li a.sub-category {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        padding-left: 20px; 
+      }
+      .sidebar-list li a:hover {
+        background-color: #c28ac2;
+      }
+      .resize-img {
+        width: 35% !important;
+        height: auto !important;
+      }
     </style>
   </head>
   <body>
     <!-- Horní lišta s tlačítkem zpět a logem -->
     <nav class="navbar navbar-custom">
+
       <!-- Tlačítko menu vlevo -->
       <button class="navbar-toggler" type="button">
         <span></span>
@@ -292,6 +287,7 @@
   <button class="navbar-toggler" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
     <span></span>
   </button>
+  
   <!-- Boční lišta -->
   <div class="sidebar" id="sidebar">
     <ul class="sidebar-list">
@@ -307,7 +303,6 @@
     </ul>
   </div>
   
-
     <!-- Dvě tlačítka pro studijní materiály a procvičení -->
     <div class="button-container">
       <a href="zaci-studijnimaterialy.html" class="btn btn-students">Studijní materiály</a>

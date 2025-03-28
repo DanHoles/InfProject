@@ -22,13 +22,12 @@
         max-height: 100px;
         max-width: 100%; 
       }
-      /* Tlačítko pro otevření boční lišty */
       .navbar-toggler {
-        margin-left: 15px; /* Posune tlačítko dále od levého rohu */
-        border: none; /* Odstraní rámeček kolem tlačítka */
-        background: transparent; /* Průhledné pozadí */
-        outline: none !important; /* Odstraní obrys při kliknutí */
-        box-shadow: none !important; /* Odstraní vnější černé zvýraznění */
+        margin-left: 15px; 
+        border: none; 
+        background: transparent; 
+        outline: none !important; 
+        box-shadow: none !important; 
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -36,30 +35,25 @@
         height: 25px;
         padding: 0;
       }
-
-      /* Nový design tří čárek se zaoblenými rohy */
       .navbar-toggler span,
       .navbar-toggler::before,
       .navbar-toggler::after {
         content: '';
-        background-color: white; /* Bílé proužky */
+        background-color: white; 
         height: 3px;
         width: 100%;
         display: block;
         transition: all 0.3s ease-in-out;
-        border-radius: 5px; /* Zaoblení rohů */
+        border-radius: 5px; 
       }
-
       .navbar-toggler::before {
         position: relative;
         top: 0;
       }
-
       .navbar-toggler::after {
         position: relative;
         bottom: 0;
       }
-
       .button-container {
         display: flex;
         width: 100%;
@@ -70,10 +64,10 @@
         height: 40px; 
         font-size: 20px;
         font-weight: bold;
-        border: none; /* Odstraní ohraničení mezi tlačítky */
+        border: none; 
         border-radius: 0; 
         outline: none; 
-        margin: 0; /* Odstraní mezery mezi tlačítky */
+        margin: 0; 
       }
       .btn-students {
         background-color: #d8b3d8; 
@@ -184,71 +178,64 @@
       }
       .features-container {
         display: flex;
-        justify-content: center; /* Zarovná seznam na střed obrazovky */
+        justify-content: center; 
       }
       .features-list {
-        list-style-type: none; /* Odstraní černé tečky */
-        padding: 0; /* Zruší výchozí odsazení seznamu */
-        text-align: left; /* Zarovná text v seznamu doleva */
+        list-style-type: none; 
+        padding: 0;
+        text-align: left; 
       }
       .features-list li {
-        margin-bottom: 8px; /* Přidá mezery mezi body pro lepší čitelnost */
-        font-size: 18px; /* Zvýší velikost textu o 2px */
+        margin-bottom: 8px; 
+        font-size: 18px;
       }
       .info-section {
-        margin-left: 40px; /* Posun od levého okraje */
-        white-space: normal; /* Zajistí, že text nebude skákat na další řádky zbytečně */
+        margin-left: 40px; 
+        white-space: normal; 
       }
       .text-link:hover {
-        text-decoration: underline; /* Zvýraznění při najetí myší */
+        text-decoration: underline;
       }
       .sidebar {
         position: fixed;
         left: -250px;
-        top: 100px; /* Posune začátek lišty pod horní lištu */
+        top: 100px; 
         width: 250px;
-        height: calc(100% - 100px); /* Nastaví výšku lišty tak, aby vyplnila zbytek obrazovky pod horní lištou */
+        height: calc(100% - 100px); 
         background-color: #800080;
         color: white;
         transition: all 0.3s;
         padding-top: 20px;
         z-index: 9999;
       }
-
       .sidebar.open {
         left: 0;
         box-shadow: 6px 0 0px rgba(0, 0, 0, 0.3); 
       }
       .sidebar-list {
         list-style-type: none;
-        padding: 0 10px 0; /* Posune tlačítka výš */
+        padding: 0 10px 0; 
       }
-
       .sidebar-list li {
         padding: 0 10px 5px;
         border-bottom: 1px solid #ddd;
       }
-
-/* Nadpis 1 pro hlavní kategorie */
       .sidebar-list li a.main-category {
         color: white;
-        font-size: 20px; /* Větší písmo pro nadpis 1 */
+        font-size: 20px;
         font-weight: bold;
         text-decoration: none;
         display: block;
         padding: 10px;
       }
-
-      /* Nadpis 2 pro podkategorie */
       .sidebar-list li a.sub-category {
         color: white;
-        font-size: 18px; /* Menší písmo pro nadpis 2 */
+        font-size: 18px;
         text-decoration: none;
         display: block;
         padding: 10px;
-        padding-left: 20px; /* Odsazení pro podkategorie */
+        padding-left: 20px; 
       }
-
       .sidebar-list li a:hover {
         background-color: #c28ac2;
       }
@@ -347,6 +334,7 @@
     </div>
   </div>
 </div>
+
 <!-- Sekce s odkazy pro žáky a učitele -->
 <br>
 <br>
