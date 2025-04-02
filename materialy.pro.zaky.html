@@ -76,7 +76,7 @@
         text-align: center;
       }
       .ml-section {
-        padding: 30px 15px;
+        padding: 2px 15px;
         background-color: #fff;
         text-align: center;
       }
@@ -283,10 +283,6 @@
       <a href="hlavni-stranka.html"><img src="CoJeToLLM log.png" alt="Logo stránky Co Je To LLM" class="navbar-logo"></a>
     </nav>
 
-  <!-- Tlačítko pro otevření boční lišty -->
-  <button class="navbar-toggler" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
-    <span></span>
-  </button>
   
   <!-- Boční lišta -->
   <div class="sidebar" id="sidebar">
@@ -318,6 +314,67 @@
         </p>
       </div>
     </div>
+
+<!-- Motivace studentů k vyzkoušení AI -->
+<div class="ml-h2">
+  <div class="container">
+    <h2 class="centered-title">Co můžete AI naučit?</h2>
+  </div>
+</div>
+<div class="ml-section">
+  <div class="container">
+    <h3>Rozpoznávat pohyby hlavou a těla</h3>
+  </div>
+  <div class="classification-container" style="margin-top: 10px;">
+    <div class="fade-in">
+      <p>Pomocí pár snímků z webkamery jsem dokázal naučit jednoduchý supervised model naučit rozpoznávat pár jednoduchých pohybů hlavou.
+        <br>
+        <br>
+        Model si můžeš vyzkoušet na <a href="https://teachablemachine.withgoogle.com/models/ncmkkr3-j/" target="_blank">tomto odkazu</a>
+      </p>
+    </div>
+    <div class="fade-in">
+          <video id="hand-move-video" controls muted playsinline loop style="height: 100%; max-height: 340px; width: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <source src="video natáčení hlavy.mov" type="video/mp4">
+        Váš prohlížeč nepodporuje přehrávání videa.
+      </video>
+    </div>
+    <div class="classification-container">
+      <div class="fade-in">
+        <p>Stejným způsobem jsem dokázal model naučit i rozpoznávat, zda mám zvednutou ruku, či nikoliv
+          <br>
+          <br>
+          Tento model si můžeš vyzkoušet na <a href="https://teachablemachine.withgoogle.com/models/i3qhQgZDh/" target="_blank">tomto odkazu</a>
+        </p>
+      </div>
+      <div class="fade-in">
+        <video id="head-move-video" controls muted playsinline loop style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          <source src="video rozpoznání ruky.mov" type="video/mp4">
+          Váš prohlížeč nepodporuje přehrávání videa.
+        </video>
+      </div>
+  </div>
+</div>
+<div class="ml-section">
+  <div class="container">
+    <h3>Generování obrázků</h3>
+    <div class="classification-container" style="margin-top: 10px;">
+      <div class="fade-in" style="flex: 1;">
+        <p>AI ti může tvůj obrázek přetvořit na jiný přesně podle tvých představ.
+          <br><br>
+          Já jsem zadal ChatGPT, ať tuto fotku sochy předělá do stylu Simpsonových
+        </p>
+      </div>
+      <div class="classification-container fade-in" style="flex: 1; gap: 30px;">
+        <div class="image-container">
+          <img src="socha original.JPG" alt="Původní obrázek">
+        </div>
+        <div class="image-container">
+          <img src="socha styl simpsonovy.png" alt="Styl Simpsonovi">
+        </div>
+      </div>
+    </div>
+</div>
 
     <!-- Přesunutý Úvod do Machine Learning -->
 <div class="ml-h2">
@@ -679,6 +736,26 @@
 </div>
 
 <script>
+  const video = document.getElementById('head-move-video');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: 0.6 
+    }
+  );
+
+  if (video) {
+    observer.observe(video);
+  }
   const fadeInElements = document.querySelectorAll('.fade-in');
 
   const checkVisibility = () => {
@@ -724,6 +801,28 @@
         navbarToggler.click();
       }
     });
+  </script>
+  <script>
+    const handVideo = document.getElementById('hand-move-video');
+  
+    const observerHand = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            handVideo.play();
+          } else {
+            handVideo.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.6
+      }
+    );
+  
+    if (handVideo) {
+      observerHand.observe(handVideo);
+    }
   </script>
   </body>
 </html>
